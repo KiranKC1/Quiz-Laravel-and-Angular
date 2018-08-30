@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Information\InformationResource;
 use App\Model\Information;
 use Illuminate\Http\Request;
 
@@ -46,7 +47,7 @@ class InformationController extends Controller
      */
     public function show(Information $information)
     {
-        //
+        return new InformationResource($information);
     }
 
     /**
