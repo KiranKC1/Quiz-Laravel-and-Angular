@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+    protected $fillable = ['title'];
   public function informations()
   {
       return $this->hasMany(Information::class);
