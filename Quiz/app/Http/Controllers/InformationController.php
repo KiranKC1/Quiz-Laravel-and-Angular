@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\Information\InformationResource;
 use App\Model\Information;
 use Illuminate\Http\Request;
+use App\Model\Category;
 
 class InformationController extends Controller
 {
@@ -13,9 +14,10 @@ class InformationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Category $category)
     {
-        //
+
+        return InformationResource::collection($category->informations);
     }
 
     /**

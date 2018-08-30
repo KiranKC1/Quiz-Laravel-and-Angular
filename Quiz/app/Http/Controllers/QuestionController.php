@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Model\Question;
 use Illuminate\Http\Request;
+use App\Model\Category;
+use App\Http\Resources\Question\QuestionResource;
 
 class QuestionController extends Controller
 {
@@ -12,9 +14,9 @@ class QuestionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Category $category)
     {
-        //
+        return QuestionResource::collection($category->questions);
     }
 
     /**

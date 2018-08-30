@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Model\Category;
 use Illuminate\Http\Request;
 use App\Http\Resources\Category\CategoryResource;
+use App\Http\Resources\Category\CategoryCollection;
 
 class CategoryController extends Controller
 {
@@ -15,8 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return Category::all();
-        
+        return CategoryCollection::collection(Category::paginate(5));
     }
 
     /**
